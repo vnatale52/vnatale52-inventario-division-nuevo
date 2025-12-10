@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: inventario-backend
+    env: node
+    rootDir: app/server
+    buildCommand: "npm install"
+    startCommand: "node server.mjs"
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        sync: false
+
+  - type: web
+    name: inventario-frontend
+    env: static
+    rootDir: app/client
+    buildCommand: "npm install && npm run build"
+    staticPublishPath: "dist"
+    envVars:
+      - key: VITE_API_URL
+        sync: false
