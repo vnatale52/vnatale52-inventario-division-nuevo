@@ -8,16 +8,27 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
+      - name: Checkout repository
+        uses: actions/checkout@v4
 
-      - name: Backend deps
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: "npm"
+
+      # === BACKEND ===
+      - name: Install backend dependencies
         working-directory: app/server
         run: npm ci
 
-      - name: Frontend deps
+      # Aquí podrías agregar tests si deseas
+      #- name: Run backend tests
+      #  working-directory: app/server
+      #  run: npm test
+
+      # === FRONTEND ===
+      - name: Install frontend dependencies
         working-directory: app/client
         run: npm ci
 
@@ -30,14 +41,21 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Deploy backend
+      - name: Deploy backend to Render
         run: |
-          curl -X POST \
+          curl -s -o /dev/null -w "%{http_code}" \
+            -X POST \
+            -H "Accept: application/json" \
             -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-            https://api.render.com/v1/services/${{ secrets.RENDER_BACKEND_SERVICE_ID }}/deploys
+            https://api.render.com/v1/services/${{ secrets.RENDER_BACKEND_SERVICE_ID }}/deploys \
+            | grep -q "20[0-9]" || { echo "Backend deploy failed"; exit 1; }
 
-      - name: Deploy frontend
+      - name: Deploy frontend to Render
         run: |
-          curl -X POST \
+          curl -s -o /dev/null -w "%{http_code}" \
+            -X POST \
+            -H "Accept: application/json" \
             -H "Authorization: Bearer ${{ secrets.RENDER_API_KEY }}" \
-            https://api.render.com/v1/services/${{ secrets.RENDER_FRONTEND_SERVICE_ID }}/deploys
+            https://api.render.com/v1/services/${{ secrets.RENDER_FRONTEND_SERVICE_ID }}/deploys \
+            | grep -q "20[0-9]" || { echo "Frontend deploy failed"; exit 1; }
+
