@@ -1,0 +1,41 @@
+External Database URL
+postgresql://postgresql_6e2o_user:j6EI0oKbXqzIeQl8UrcwIF4aFFKrMX2D@dpg-d4spoire5dus73arj36g-a.virginia-postgres.render.com/postgresql_6e2o
+
+
+
+JWT_SECRET
+2fcc78444d1bcf16d151734e7475fa1c    
+
+
+https://vnatale52-inventario-division-nuevo.onrender.com
+https://vnatale52-inventario-division-nuevo-c450.onrender.com     (es el static)
+
+
+
+RENDER_API_KEY               rnd_2y7RGMZKcBd8Z4N9icaJobX6bZq0       Render no permite recuperar una API Key si no la guardaste. Si la pierdes, debes crear una nueva.
+RENDER_BACKEND_SERVICE_ID=srv-d4spt4fpm1nc73c8qdr0
+RENDER_FRONTEND_SERVICE_ID=srv-d4sq09v5r7bs739sht70   
+Ambos son imprescindibles para que GitHub Actions pueda disparar los deploys automáticos.
+
+Api-key-github-actions 
+
+
+
+Internal Database URL
+All of your Render services in the same region can communicate internally over their private network.
+postgresql://postgresql_6e2o_user:
+
+External Database URL
+Connect from services outside of Render .
+
+postgresql://postgresql_6e2o_user:j6EI0oKbXqzIeQl8UrcwIF4aFFKrMX2D@dpg-d4spoire5dus73arj36g-a.virginia-postgres.render.com/postgresql_6e2o
+
+PSQL Command
+Connect using the
+Render CLI
+
+render psql dpg-d4spoire5dus73a
+
+
+comando para gitbash:
+psql "postgresql://postgresql_6e2o_user:j6EI0oKbXqzIeQl8UrcwIF4aFFKrMX2D@dpg-d4spoire5dus73arj36g-a.virginia-postgres.render.com:5432/postgresql_6e2o"

@@ -1,0 +1,45 @@
+Estructura Final del Proyecto (v7)
+
+inventario_division_app_v7/
+│
+├── app/
+│   ├── server/
+│   │   ├── server.mjs
+│   │   ├── database.mjs
+│   │   ├── package.json
+│   │   ├── .env.example
+│   │   ├── routes/
+│   │   │   ├── auth.mjs
+│   │   │   └── inventory.mjs
+│   │   ├── controllers/
+│   │   │   ├── authController.mjs
+│   │   │   └── inventoryController.mjs
+│   │   ├── middleware/
+│   │   │   └── auth.mjs
+│   │   ├── data/
+│   │   │   ├── usuarios.csv
+│   │   │   ├── columnas.csv
+│   │   │   └── Inventario.csv
+│   │   ├── seed_users.mjs
+│   │   ├── seed_inventory.mjs
+│   │
+│   └── client/
+│       ├── index.html
+│       ├── vite.config.js
+│       ├── package.json
+│       ├── .env.example
+│       └── src/
+│           ├── main.jsx
+│           ├── App.jsx
+│           ├── pages/
+│           │   ├── Login.jsx
+│           │   └── Inventory.jsx
+│           └── components/
+│               ├── LoginForm.jsx
+│               └── InventoryTable.jsx
+│
+├── docker-compose.yml
+├── Makefile
+├── render.yaml
+├── .github/workflows/deploy.yml
+└── README-WALKTHROUGH-RENDER_DEPLOYMENT.md

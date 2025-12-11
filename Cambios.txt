@@ -1,0 +1,23 @@
+Ahora realiza los siguietes cambios y mejoras:
+
+1)  En la pantalla de incio y a continuación de la línea de "Welcome Back", agrega la siguiente leyenda:
+"Administración del Inventario de Expedientes de Fiscalización".
+
+2) Elimina el botón Columns, dado que es innecesario, debido a que la estructura real de la columnas y sus títulos, se toman directamente desde el archivo columnas.csv.   Elimina el código innecesario en relación a dicho botón Columns.
+
+3) Elimina el botón "Ver Usuarios", dado que es innecario, debido a que el listado válidos de usuarios cargados y sus roles, ya se puede ver   presionando el botón "Manage Users".  Elimina el código innecesario en relación a dicho botón "Ver Usuarios".
+
+4)  Agrega la siguiente leyenda "Sólo se muestran los registros correspondientes al usuario que está logueado; los registros de otros usuarios no se muestran.", a continuación de "Records", pero inmediatamente antes de: "Modifica el ancho de las columnas a tu propia conveniencia".
+
+5)  Sólo pueden agregar Registros con "Add Records", aquéllos usuarios que estén efectivamente dados de alta en el archivo usuarios.cvs, mostrando los mensajes adecuados en pantalla.
+
+*************************************************************
+
+En el archivo columnas.cvs, que ya acabo de subir a mi repositorio en Github y que contiene la estructura de las columnas, ahora le he agregado la columna "Ancho". 
+Este archivo tiene los siguientes 3 headers:   "Numero Columna"; "Descripcion" y "Ancho"  .
+
+Ahora quiero que realices las siguientEs cambios y mejoras en el código:
+
+1) Inmediatamente antes de mostrar el correspondiente header para cada columna, agrega una fila para mostrar el respectivo "Numero Columna" (excepto para la columna "Actions").
+2) "Ancho" es una nueva columna que acabo de agregar en el anterior columnas.cvs. Quiero que el valor de "Ancho" lo asignes como ancho por default a la respectiva columna. No obstante, cada usuario, incluido el administrador, podrá siempre continuar agrandando o achicando dicho ancho por default y también podrá continuar realizando un "Save Layout", en caso de que haya cambiado el ancho asignado por default. 
+3) Ahora en los headers conteniendo el string "al¡cuota", lo he reemplazado dicho strin por o por "alicuota", es decir, he quitado la tilde.
