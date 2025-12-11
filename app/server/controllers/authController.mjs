@@ -1,5 +1,8 @@
 import jwt from "jsonwebtoken";
-import bcrypt from "bcrypt";
+//  import bcrypt from "bcrypt";  // no funciona
+import bcrypt from "bcryptjs";
+
+
 import { query } from "../database.mjs";
 
 const SALT_ROUNDS = 10;
